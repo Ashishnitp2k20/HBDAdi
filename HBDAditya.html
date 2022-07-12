@@ -179,10 +179,38 @@
             height: 250px;
             width: 250px;
             border-radius: 50%;
+            position: relative;
+            z-index: 2;
             border-right: 10px solid limegreen;
             border-left: 10px solid cyan;
             border-bottom: 10px solid cyan;
             border-top: 10px solid limegreen;
+        }
+        
+        .border-animation {
+            position: relative;
+            height: inherit;
+            width: inherit;
+            border-radius: inherit;
+            overflow: hidden;
+        }
+        .border-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;height: 100%;
+            background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+            background-size: 50% 100%;
+            border-radius: inherit;
+        }
+        .border-animation:hover::before {
+            animation: animate .75s linear infinite;
+        }
+        @keyframes animate {
+            to{
+                transform: translateX(-50%);
+            }
         }
 
         @media screen and (max-width: 768px) {
@@ -229,7 +257,9 @@
         <figcaption>Ashish Kumar</figcaption>
     </figure>
     <figure id="aditya">
+        <div class="border-animation">
         <img src="https://github.com/Ashishnitp2k20/Ashishnitp2k20/blob/main/Adi.jpg?raw=true" alt="aman">
+        </div>
         <figcaption>Aditya Raj</figcaption>
         <details>
             <summary id="oops">OOPS! It's Aditya B'day 😀😀</summary>
